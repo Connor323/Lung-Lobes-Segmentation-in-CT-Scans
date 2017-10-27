@@ -4,9 +4,11 @@ Python and C++ implementation on vessel and fissure segmentation in Lung CT Scan
 
 ## Usage
 **For lung and pulmonary vessel segmentation**. 
+
 I create a ipython notebook for this part (in lung_segmentation.ipynb except the last two parts).
 
 **For pulmonary fissure segmentation**. 
+
 Compile the two C++ files for fissure segmentation.
 1. cmake .
 2. make
