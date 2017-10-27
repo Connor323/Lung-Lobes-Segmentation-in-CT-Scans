@@ -3,10 +3,10 @@
 Python and C++ implementation on vessel and fissure segmentation in Lung CT Scans based on [Bianca's work](https://pdfs.semanticscholar.org/ddd9/8a73eab745841ba41a13633be76ab1f9c8b0.pdf)
 
 ## Usage
-**For lung and pulmonary vessel segmentation**
+**For lung and pulmonary vessel segmentation**. 
 I create a ipython notebook for this part (in lung_segmentation.ipynb except the last two parts).
 
-***For pulmonary fissure segmentation*
+**For pulmonary fissure segmentation**. 
 Compile the two C++ files for fissure segmentation.
 1. cmake .
 2. make
@@ -36,8 +36,8 @@ And in 3D view:
 ![ ](images/vessel3d.png)
 ----
 
-The result of fissure segmentation: 
-(original, after vector-based region growing, after intensity-based region growing)
+The result of fissure segmentation:   
+(From left to right: original, after vector-based region growing, after intensity-based region growing)
 
 ![ ](images/fissure.png)
 
