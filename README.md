@@ -15,11 +15,11 @@ Compile the two C++ files for fissure segmentation.
 3. 
 	Use vector-based region growing for fissure segmention. 
 	```Python
-	./vector_region_growing INPUT_FILE_NAME OUTPUT_FILE_NAME
+	./vector_region_growing ORIGINAL_CT.mhd FISSURE_EXTRACT.mhd
 	```
 	Use intensity-based region growing for removing small regions.
 	```Python
-	./region_growing INPUT_FILE_NAME OUTPUT_FILE_NAME
+	./region_growing FISSURE_EXTRACT.mhd FISSURE_EXTRACT_REFINED.mhd
 	```
 4. Running the last two sections in the ipython notebook to generate fissure mask and final lung-vessel-fissure mask. 
 
