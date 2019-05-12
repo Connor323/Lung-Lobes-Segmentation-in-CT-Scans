@@ -13,7 +13,7 @@ Compile the two C++ files for fissure segmentation.
 1. cmake .
 2. make
 3. 
-	Use vector-based region growing for fissure segmention. 
+	Use vector-based region growing for fissure segmentation. 
 	```Python
 	./vector_region_growing ORIGINAL_CT.mhd FISSURE_EXTRACT.mhd
 	```
@@ -29,7 +29,7 @@ The result of lung segmentation:
 ![ ](images/lung.png)
 ----
 
-The result of vessel segmentaton:  
+The result of vessel segmentation:  
 
 ![ ](images/vessel.png)
 
