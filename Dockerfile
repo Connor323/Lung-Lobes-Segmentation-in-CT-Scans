@@ -90,8 +90,7 @@ RUN ./b2 install
 
 RUN /bin/bash -c "source /opt/conda/bin/activate py && conda install cython numpy SimpleITK -y && pip install scikit-build"
 
-RUN mkdir -p /opt/code
-WORKDIR /opt/code
-
-COPY * /opt/code/
+#RUN mkdir -p /opt/code
+#WORKDIR /opt/code
+#COPY * /opt/code/
 
