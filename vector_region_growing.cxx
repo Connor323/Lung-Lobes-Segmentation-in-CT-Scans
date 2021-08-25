@@ -290,7 +290,7 @@ int main( int argc, char * argv[] )
 
   // Compute eigenvalues
   std::cout << "  Compute Eigenvalues " << std::endl;
-  EigValHessian eigenvalues = EigValHessian::EigValHessian( reader->GetOutput(), sigma, alpha, beta, gama );
+  EigValHessian eigenvalues = EigValHessian( reader->GetOutput(), sigma, alpha, beta, gama );
 
   std::cout << "   Saving Image..." << std::endl;
   typedef itk::ImageFileWriter < OutputImageType > WriterType;
