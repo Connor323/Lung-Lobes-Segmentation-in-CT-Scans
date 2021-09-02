@@ -17,7 +17,13 @@ docker build -t connor323lungseg .
 docker run -it -w /workdir -v ${PWD}:/workdir connor323lungseg bash
 cmake .
 make
-exit
+```
+
+1.5 download and preprocess images
+
+```
+cd bin;bash download.sh;cd ..
+python bin/preprocess.py bin/images ORIGINAL_CT.mhd
 ```
 
 2. Use vector-based region growing for fissure segmention. 
@@ -29,6 +35,7 @@ Use intensity-based region growing for removing small regions.
 ```Python
 ./region_growing FISSURE_EXTRACT.mhd FISSURE_EXTRACT_REFINED.mhd
 ```
+
 3. Running the last two sections in the ipython notebook to generate fissure mask and final lung-vessel-fissure mask. 
 
 ## Results

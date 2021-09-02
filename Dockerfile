@@ -88,9 +88,16 @@ RUN mv libs/python/src/converter/builtin_converters.cpp libs/python/src/converte
 RUN mv builtin_converters.cpp libs/python/src/converter/builtin_converters.cpp
 RUN ./b2 install
 
-RUN /bin/bash -c "source /opt/conda/bin/activate py && conda install cython numpy SimpleITK -y && pip install scikit-build"
+RUN /bin/bash -c "source /opt/conda/bin/activate py && conda install cython numpy -y && pip install scikit-build"
+RUN /bin/bash -c "source /opt/conda/bin/activate py && pip install SimpleITK"
 
-#RUN mkdir -p /opt/code
-#WORKDIR /opt/code
-#COPY * /opt/code/
+RUN apt-get update; apt-get install gdb -yq
+
+RUN mkdir -p /opt/code
+WORKDIR /opt/code
+
+COPY * /opt/code/
+
+
+
 
