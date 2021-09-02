@@ -4,6 +4,7 @@ import argparse
 import os,sys
 import numpy as np
 import SimpleITK as sitk
+import pydicom
 
 # ref https://gist.github.com/mrajchl/ccbd5ed12eb68e0c1afc5da116af614a
 def resample_img(itk_image, out_spacing=[1.0, 1.0, 1.0], is_label=False):
@@ -45,6 +46,9 @@ if __name__ == "__main__":
     if os.path.isdir(args.input_file):
         mydir = os.path.abspath(args.input_file)
         dicom_names = [os.path.join(mydir,x) for x in os.listdir(mydir)]
+        mylist = [(int(pydicom.dcmread(x).InstanceNumber),x) for x in dicom_names]
+        mylist = [x for x in sorted(mylist,key=lambda x:x[0])]
+        dicom_names = [x[1] for x in mylist]
         reader = sitk.ImageSeriesReader()
         reader.SetFileNames(dicom_names)
     else:
