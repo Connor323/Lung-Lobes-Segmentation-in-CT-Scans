@@ -19,24 +19,24 @@ cmake .
 make
 ```
 
-1.5 download and preprocess images
+2. Download and preprocess chest CT series.
 
 ```
 cd bin;bash download.sh;cd ..
 python bin/preprocess.py bin/images ORIGINAL_CT.mhd
 ```
 
-2. Use vector-based region growing for fissure segmention. 
+3. Use vector-based region growing for fissure segmention.
 
-```Python
+```
 ./vector_region_growing ORIGINAL_CT.mhd FISSURE_EXTRACT.mhd
 ```
 Use intensity-based region growing for removing small regions.
-```Python
+```
 ./region_growing FISSURE_EXTRACT.mhd FISSURE_EXTRACT_REFINED.mhd
 ```
 
-3. Running the last two sections in the ipython notebook to generate fissure mask and final lung-vessel-fissure mask. 
+4. Running the last two sections in the ipython notebook to generate fissure mask and final lung-vessel-fissure mask.
 
 ## Results
 The result of lung segmentation:  
