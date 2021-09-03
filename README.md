@@ -19,7 +19,7 @@ cmake .
 make
 ```
 
-2. Download and preprocess chest CT series.
+2. Download and preprocess chest CT series, and name sample series as `ORIGINAL_CT.mhd`.
 
 ```
 cd bin;bash download.sh;cd ..
