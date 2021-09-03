@@ -65,17 +65,16 @@ if __name__ == "__main__":
     # resamling image to isotropic    
     img = resample_img(img,out_spacing=target_spacing)
     
-    arr = sitk.GetArrayFromImage(img).astype(np.float)
+    arr = sitk.GetArrayFromImage(img).astype(float)
     minval,maxval = -1024,1024
     arr = 255*((arr-minval)/(maxval-minval)).clip(0,1)
     arr = arr.astype(np.uint8)
 
-    spacing = (1.,1.,1.)
     origin = (0.,0.,0.)
     direction = (1.,0.,0.,0.,1.,0.,0.,0.,1.)
     
-    #img = sitk.GetImageFromArray(arr)
-    img.SetSpacing(spacing)
+    img = sitk.GetImageFromArray(arr)
+    img.SetSpacing(target_spacing)
     img.SetOrigin(origin)
     img.SetDirection(direction)
 
