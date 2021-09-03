@@ -5,6 +5,8 @@ import os,sys
 import numpy as np
 import SimpleITK as sitk
 import pydicom
+from scipy import ndimage
+from skimage import measure
 
 # ref https://gist.github.com/mrajchl/ccbd5ed12eb68e0c1afc5da116af614a
 def resample_img(itk_image, out_spacing=[1.0, 1.0, 1.0], is_label=False):
@@ -65,17 +67,15 @@ if __name__ == "__main__":
     # resamling image to isotropic    
     img = resample_img(img,out_spacing=target_spacing)
     
-    arr = sitk.GetArrayFromImage(img).astype(float)
-    minval,maxval = -1024,1024
-    arr = 255*((arr-minval)/(maxval-minval)).clip(0,1)
-    arr = arr.astype(float)
 
     origin = (0.,0.,0.)
     direction = (1.,0.,0.,0.,1.,0.,0.,0.,1.)
     
     # disabled intensity rescaling
+    # vector_region_growing.cxx is already scaling. 
+    #arr = sitk.GetArrayFromImage(img).astype(float)
     #img = sitk.GetImageFromArray(arr)
-    
+
     img.SetSpacing(target_spacing)
     img.SetOrigin(origin)
     img.SetDirection(direction)
