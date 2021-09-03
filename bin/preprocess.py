@@ -68,12 +68,14 @@ if __name__ == "__main__":
     arr = sitk.GetArrayFromImage(img).astype(float)
     minval,maxval = -1024,1024
     arr = 255*((arr-minval)/(maxval-minval)).clip(0,1)
-    arr = arr.astype(np.uint8)
+    arr = arr.astype(float)
 
     origin = (0.,0.,0.)
     direction = (1.,0.,0.,0.,1.,0.,0.,0.,1.)
     
-    img = sitk.GetImageFromArray(arr)
+    # disabled intensity rescaling
+    #img = sitk.GetImageFromArray(arr)
+    
     img.SetSpacing(target_spacing)
     img.SetOrigin(origin)
     img.SetDirection(direction)
