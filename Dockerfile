@@ -91,7 +91,7 @@ RUN mv builtin_converters.cpp libs/python/src/converter/builtin_converters.cpp
 RUN ./b2 install
 
 RUN /bin/bash -c "source /opt/conda/bin/activate py && conda install cython numpy -y && pip install scikit-build"
-RUN /bin/bash -c "source /opt/conda/bin/activate py && pip install SimpleITK pydicom notebook"
+RUN /bin/bash -c "source /opt/conda/bin/activate py && pip install scipy scikit-image SimpleITK pydicom notebook"
 
 RUN apt-get update; apt-get install gdb unzip curl -yq
 
