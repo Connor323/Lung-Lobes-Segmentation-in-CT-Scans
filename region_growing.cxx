@@ -125,7 +125,7 @@ int main( int argc, char * argv[] )
 
   // Compute eigenvalues
   std::cout << "  Region Growing " << std::endl;
-  Regiongrowing rg = Regiongrowing::Regiongrowing( reader->GetOutput(), thresh );
+  Regiongrowing rg = Regiongrowing( reader->GetOutput(), thresh );
 
   std::cout << "   Saving Image..." << std::endl;
   typedef itk::ImageFileWriter < ImageType > WriterType;

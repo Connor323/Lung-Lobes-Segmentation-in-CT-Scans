@@ -9,19 +9,34 @@ I create a ipython notebook for this part (in lung_segmentation.ipynb except the
 
 **For pulmonary fissure segmentation**. 
 
-Compile the two C++ files for fissure segmentation.
-1. cmake .
-2. make
-3. 
-	Use vector-based region growing for fissure segmention. 
-	```Python
-	./vector_region_growing ORIGINAL_CT.mhd FISSURE_EXTRACT.mhd
-	```
-	Use intensity-based region growing for removing small regions.
-	```Python
-	./region_growing FISSURE_EXTRACT.mhd FISSURE_EXTRACT_REFINED.mhd
-	```
-4. Running the last two sections in the ipython notebook to generate fissure mask and final lung-vessel-fissure mask. 
+
+1. Compile the two C++ files for fissure segmentation in Docker.
+
+```
+docker build -t connor323lungseg .
+docker run -it -w /workdir -v ${PWD}:/workdir connor323lungseg bash
+cmake .
+make
+```
+
+2. Download and preprocess chest CT series, and name sample series as `ORIGINAL_CT.mhd`.
+
+```
+cd bin;bash download.sh;cd ..
+python bin/preprocess.py bin/images ORIGINAL_CT.mhd
+```
+
+3. Use vector-based region growing for fissure segmention.
+
+```
+./vector_region_growing ORIGINAL_CT.mhd FISSURE_EXTRACT.mhd
+```
+Use intensity-based region growing for removing small regions.
+```
+./region_growing FISSURE_EXTRACT.mhd FISSURE_EXTRACT_REFINED.mhd
+```
+
+4. Running the last two sections in the ipython notebook to generate fissure mask and final lung-vessel-fissure mask.
 
 ## Results
 The result of lung segmentation:  

@@ -6,7 +6,7 @@ import SimpleITK as sitk
 from scipy import ndimage
 import cv2
 
-from itertools import izip_longest
+from itertools import zip_longest
 
 class VesselSegment:
     """

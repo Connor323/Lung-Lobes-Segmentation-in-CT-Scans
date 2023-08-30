@@ -1,0 +1,9 @@
+CMakeCache.txt
+CMakeFiles/
+ITKFactoryRegistration/
+Makefile
+cmake_install.cmake
+*.mhd
+*.raw
+region_growing
+vector_region_growing
